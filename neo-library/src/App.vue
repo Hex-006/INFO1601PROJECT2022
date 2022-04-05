@@ -1,9 +1,16 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <header>
+    <span id="logo">Logo </span>
+    <input type="text" id="searchbar" name="sbar" placeholder="Search Here" />
+    <nav>
+      <router-link to="/">Landing</router-link> |
+      <router-link to="/fiction">Fiction</router-link> |
+      <router-link to="/nonfiction">Non-Fiction</router-link> |
+      <router-link to="/YoungAdult">Young-Adult</router-link> |
+      <router-link to="/kids">Kids</router-link>
+    </nav>
+    <router-view />
+  </header>
 </template>
 
 <style lang="scss">
