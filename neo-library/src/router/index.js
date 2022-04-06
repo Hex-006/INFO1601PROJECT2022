@@ -4,33 +4,28 @@ import { createRouter, createWebHistory } from "vue-router";
 const routes = [
   {
     path: "/",
-    name: "lview",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/LandingView.vue"),
+    name: "landing",
+    component: () => import("../views/LandingView.vue"),
   },
   {
     path: "/Fiction",
     name: "fiction",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/FictionView.vue"),
+    component: () => import("../views/FictionView.vue"),
   },
   {
     path: "/NonFiction",
     name: "non-fiction",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/NonfictionView.vue"),
+    component: () => import("../views/NonfictionView.vue"),
   },
   {
     path: "/YoungAdult",
     name: "ya",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/YngView.vue"),
+    component: () => import("../views/YngView.vue"),
   },
   {
     path: "/Kids",
     name: "kids",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/kidsView.vue"),
+    component: () => import("../views/kidsView.vue"),
   },
 ];
 

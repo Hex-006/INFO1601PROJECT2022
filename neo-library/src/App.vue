@@ -1,37 +1,59 @@
 <template>
-  <header>
-    <span id="logo">Logo </span>
-    <input type="text" id="searchbar" name="sbar" placeholder="Search Here" />
-    <nav>
-      <router-link to="/">Landing</router-link> |
-      <router-link to="/fiction">Fiction</router-link> |
-      <router-link to="/nonfiction">Non-Fiction</router-link> |
-      <router-link to="/YoungAdult">Young-Adult</router-link> |
-      <router-link to="/kids">Kids</router-link>
-    </nav>
-    <router-view />
-  </header>
+  <div class="app-wrapper">
+    <div class="app">
+      <Navigation />
+      <nav class="nav">
+        <li>
+          <router-link to="/">Home</router-link>
+          |
+          <router-link to="/Fiction">Fiction</router-link>
+          |
+          <router-link to="/NonFiction">Non-Fiction</router-link>
+          |
+          <router-link to="/YoungAdult">Young-Adult</router-link>
+          |
+          <router-link to="/Kids">Kids</router-link>
+        </li>
+      </nav>
+      <router-view />
+    </div>
+  </div>
 </template>
 
+<script>
+import Navigation from "/src/components/NaviSection.vue";
+export default {
+  name: "app",
+  components: { Navigation },
+  data() {
+    return {};
+  },
+  created() {},
+  mounted() {},
+  methods: {},
+  watch: {},
+};
+</script>
+
 <style lang="scss">
-#app {
+* {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.link {
+  cursor: pointer;
+  color: Black;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
 }
 </style>

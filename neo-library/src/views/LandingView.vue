@@ -1,5 +1,5 @@
 <template>
-  <div class="lview">
+  <div class="landing">
     <h1>Testing</h1>
   </div>
 </template>
