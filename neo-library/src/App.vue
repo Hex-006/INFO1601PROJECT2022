@@ -4,7 +4,7 @@
       <Navigation />
       <nav class="nav">
         <li>
-          <router-link to="/">Home</router-link>
+          <router-link class="link" to="/">Home</router-link>
           |
           <router-link to="/Fiction">Fiction</router-link>
           |
