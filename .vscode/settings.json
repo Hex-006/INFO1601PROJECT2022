@@ -1,0 +1,7 @@
+{
+    "eslint.trace.server": "off",
+    "eslint.runtime": "",
+    "eslint.workingDirectories": [
+        {"mode": "auto"}
+    ]
+}

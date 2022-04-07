@@ -2,7 +2,7 @@
   <header>
     <nav class="container">
       <div class="topbar">
-        <router-link to="/">Library of Neo Alexadria</router-link>
+        <router-link class="link" to="/">Library of Neo Alexadria</router-link>
         <input type="text" class="searchbar" placeholder="Search here" />
         <router-link class="link" to="#">Login/Register</router-link>
       </div>
