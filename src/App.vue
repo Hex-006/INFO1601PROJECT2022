@@ -16,15 +16,17 @@
         </li>
       </nav>
       <router-view />
+      <Foot />
     </div>
   </div>
 </template>
 
 <script>
-import Navigation from "/src/components/NaviSection.vue";
+import Navigation from "/src/components/NaviSection";
+import Foot from "/src/components/footerSection";
 export default {
   name: "app",
-  components: { Navigation },
+  components: { Navigation, Foot },
   data() {
     return {};
   },

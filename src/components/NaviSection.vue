@@ -4,7 +4,8 @@
       <div class="topbar">
         <router-link class="link" to="/">Library of Neo Alexadria</router-link>
         <input type="text" class="searchbar" placeholder="Search here" />
-        <router-link class="link" to="#">Login/Register</router-link>
+        <router-link class="link" to="#">Login</router-link>/
+        <router-link class="link" to="#">Register</router-link>
       </div>
     </nav>
   </header>
