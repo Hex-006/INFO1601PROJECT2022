@@ -1,22 +1,22 @@
 <template>
   <div class="app-wrapper">
     <div class="app">
-      <Navigation />
-      <nav class="nav">
+      <Navigation v-if="!navDis" />
+      <nav class="nav" v-if="!navDis">
         <li>
           <router-link class="link" to="/">Home</router-link>
           |
-          <router-link to="/Fiction">Fiction</router-link>
+          <router-link class="link" to="/fiction">Fiction</router-link>
           |
-          <router-link to="/NonFiction">Non-Fiction</router-link>
+          <router-link class="link" to="/nonfiction">Non-Fiction</router-link>
           |
-          <router-link to="/YoungAdult">Young-Adult</router-link>
+          <router-link class="link" to="/youngadult">Young-Adult</router-link>
           |
-          <router-link to="/Kids">Kids</router-link>
+          <router-link class="link" to="/kids">Kids</router-link>
         </li>
       </nav>
       <router-view />
-      <Foot />
+      <Foot v-if="!navDis" />
     </div>
   </div>
 </template>
@@ -28,12 +28,33 @@ export default {
   name: "app",
   components: { Navigation, Foot },
   data() {
-    return {};
+    return {
+      navDis: null,
+    };
   },
-  created() {},
+  created() {
+    this.croute();
+  },
   mounted() {},
-  methods: {},
-  watch: {},
+  methods: {
+    croute() {
+      if (
+        this.$route.path.startsWith("/log") ||
+        this.$route.path.startsWith("/reg") ||
+        this.$route.path.startsWith("/pass")
+      ) {
+        this.navDis = true;
+        return;
+      } else {
+        this.navDis = false;
+      }
+    },
+  },
+  watch: {
+    $route() {
+      this.croute();
+    },
+  },
 };
 </script>
 
@@ -57,5 +78,10 @@ export default {
 .container {
   max-width: 1920px;
   margin: 0 auto;
+}
+.nav {
+  text-align: center;
+  margin: auto;
+  width: 50%;
 }
 </style>

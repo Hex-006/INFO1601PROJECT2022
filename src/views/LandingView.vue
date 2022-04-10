@@ -1,9 +1,5 @@
 <template>
   <div class="landing">
-    <section id="First-Img">
-      <img class="firstimg" src="library.png" />
-    </section>
-
     <section id="Recommended-books">
       <h1><i>RECOMMENDED BOOKS</i></h1>
       <span>
@@ -25,9 +21,7 @@
       </span>
     </section>
 
-    <section id="Last-Img">
-      <img class="lastimg" src="library.png" />
-    </section>
+    <section id="Last-Img"></section>
   </div>
 </template>
 <script>
