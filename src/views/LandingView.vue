@@ -1,23 +1,29 @@
 <template>
-  <div class="landing">
-    <section id="Recommended-books">
+  <div class="home">
+    <section class="blog-card-wrap">
       <h1><i>RECOMMENDED BOOKS</i></h1>
       <span>
-        <div id="Recbooks"></div>
+        <div class="book-cards">
+          <bkcards v-for="(post, index) in samplebooks" :key="index" />
+        </div>
       </span>
     </section>
     <p></p>
     <section id="Newest-arrivals">
       <h1><i>OUR NEWEST ARRIVALS</i></h1>
       <span>
-        <div id="NewBooks"></div>
+        <div id="NewBooks">
+          <!-- insert bookCard here -->
+        </div>
       </span>
     </section>
     <p></p>
     <section id="Coming-soon">
       <h1><i>COMING SOON</i></h1>
       <span>
-        <div id="ComBooks"></div>
+        <div id="ComBooks">
+          <!-- insert bookCard here -->
+        </div>
       </span>
     </section>
 
@@ -25,7 +31,22 @@
   </div>
 </template>
 <script>
-export default {};
+import bkcards from "../components/bookCard";
+export default {
+  components: bkcards,
+  data() {
+    return {
+      samplebooks: [
+        { bookTitle: "book 1" },
+        { bookTitle: "book 2" },
+        { bookTitle: "book 3" },
+        { bookTitle: "book 4" },
+        { bookTitle: "book 5" },
+        { bookTitle: "book 6" },
+      ],
+    };
+  },
+};
 </script>
 <style lang="scss" scoped>
 @media screen {
@@ -119,6 +140,28 @@ export default {};
     width: 90%;
     height: 500px;
     border: solid white 1px;
+  }
+}
+.blog-card-wrap {
+  position: relative;
+  padding: 80px 16px;
+  background-color: #f1f1f1;
+  @media (min-width: 500px) {
+    padding: 100px 16px;
+  }
+  .blog-cards {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: 1fr;
+    @media (min-width: 500px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 900px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 }
 </style>

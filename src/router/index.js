@@ -6,10 +6,11 @@ import passrecov from "../views/PassRecovView.vue";
 const routes = [
   {
     path: "/",
-    name: "landing",
+    name: "Home",
     component: () => import("../views/LandingView.vue"),
     meta: {
       title: "Home",
+      requiresAuth: false,
     },
   },
   {

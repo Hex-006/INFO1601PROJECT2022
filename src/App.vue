@@ -24,6 +24,7 @@
 <script>
 import Navigation from "/src/components/NaviSection";
 import Foot from "/src/components/footerSection";
+// import bandimg from "";
 export default {
   name: "app",
   components: { Navigation, Foot },
