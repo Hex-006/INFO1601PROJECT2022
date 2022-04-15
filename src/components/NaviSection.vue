@@ -22,7 +22,7 @@ header {
   z-index: 99;
 }
 .searchbar {
-  align-content: right;
+  padding: 0.5em 0.5em;
 }
 .link {
   font-weight: bold;
@@ -34,7 +34,7 @@ header {
 }
 nav {
   display: flex;
-  padding: 0 8px;
+  padding: 0 25px;
 
   .topbar {
     display: flex;

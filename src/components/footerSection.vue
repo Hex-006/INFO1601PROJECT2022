@@ -1,9 +1,6 @@
 <template>
   <footer>
     <div class="container">
-      <section class="missionstatement">
-        <h3>Mission statement</h3>
-      </section>
       <div class="lhs">
         <div class="socials">
           <ul>
@@ -30,8 +27,107 @@
           </ul>
         </div>
       </div>
+      <div class="rhs">
+        <p>A student project</p>
+      </div>
     </div>
   </footer>
 </template>
 
-<style></style>
+<style lang="scss" scoped>
+footer {
+  margin-top: auto;
+  padding: 100px 25px;
+  background-color: #303030;
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    @media (min-width: 800px) {
+      flex-direction: row;
+      gap: 0px;
+    }
+    > div {
+      display: flex;
+      flex: 1;
+    }
+    .lhs {
+      gap: 32px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @media (min-width: 800px) {
+        flex-direction: row;
+        align-items: initial;
+        gap: 0;
+      }
+      ul {
+        gap: 16px;
+        list-style: none;
+        display: flex;
+      }
+      .socials,
+      .reglog {
+        gap: 32px;
+        display: flex;
+        flex: 1;
+        @media (min-width: 800px) {
+          gap: 0;
+        }
+      }
+      .socials {
+        flex-direction: column;
+        h2 {
+          text-align: center;
+          @media (min-width: 800px) {
+            text-align: initial;
+          }
+        }
+        ul {
+          margin-top: auto;
+          li {
+            display: flex;
+            align-items: center;
+            .svg-icon {
+              width: 24px;
+              height: auto;
+              color: #fff;
+            }
+          }
+        }
+      }
+      .reglog {
+        ul {
+          height: 100%;
+          justify-content: center;
+          flex-direction: row;
+          flex-wrap: wrap;
+          @media (min-width: 800px) {
+            flex-direction: column;
+          }
+          .link {
+            font-size: 16px;
+            font-weight: 500;
+            color: #fff;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    .rhs {
+      gap: 32px;
+      color: #fff;
+      align-items: center;
+      flex-direction: column;
+      @media (min-width: 800px) {
+        align-items: flex-end;
+        gap: 0;
+      }
+    }
+    p {
+      margin-top: auto;
+    }
+  }
+}
+</style>

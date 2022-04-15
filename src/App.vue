@@ -2,7 +2,7 @@
   <div class="app-wrapper">
     <div class="app">
       <Navigation v-if="!navDis" />
-      <nav class="nav" v-if="!navDis">
+      <nav class="nav-links" v-if="!navDis">
         <li>
           <router-link class="link" to="/">Home</router-link>
           |
@@ -16,8 +16,8 @@
         </li>
       </nav>
       <router-view />
-      <Foot v-if="!navDis" />
     </div>
+    <Foot v-if="!navDis" />
   </div>
 </template>
 
@@ -69,6 +69,8 @@ export default {
 .link {
   cursor: pointer;
   color: Black;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 .app {
   display: flex;
@@ -84,5 +86,30 @@ export default {
   text-align: center;
   margin: auto;
   width: 50%;
+}
+.link-light {
+  color: #fff;
+}
+.book-card-wrap {
+  position: relative;
+  padding: 80px 16px;
+  background-color: #f1f1f1;
+  @media (min-width: 512px) {
+    padding: 100px 16px;
+  }
+}
+.booksec {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: 1fr;
+  @media (min-width: 500px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 900px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }
 </style>
