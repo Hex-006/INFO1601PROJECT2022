@@ -87,8 +87,23 @@ export default {
   margin: auto;
   width: 50%;
 }
+.nav-links {
+  text-align: center;
+}
 .link-light {
   color: #fff;
+}
+.arrow {
+  margin-left: 8px;
+  width: 12xp;
+  path {
+    fill: #000;
+  }
+}
+.arrow-light {
+  path {
+    fill: #fff;
+  }
 }
 .book-card-wrap {
   position: relative;
@@ -101,7 +116,6 @@ export default {
 .booksec {
   display: grid;
   gap: 32px;
-  grid-template-columns: 1fr;
   @media (min-width: 500px) {
     grid-template-columns: repeat(2, 1fr);
   }

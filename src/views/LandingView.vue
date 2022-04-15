@@ -4,7 +4,27 @@
       <div class="container">
         <h2>Recommended Books</h2>
         <div class="booksec">
-          <bkcards v-for="(post, index) in samplebooks" :key="index" />
+          <bkcards
+            :post="post"
+            v-for="(post, index) in recBooks"
+            :key="index"
+          />
+        </div>
+        <h2>New Arrivals</h2>
+        <div class="booksec">
+          <bkcards
+            :post="post"
+            v-for="(post, index) in arriveNew"
+            :key="index"
+          />
+        </div>
+        <h2>Coming Soon</h2>
+        <div class="booksec">
+          <bkcards
+            :post="post"
+            v-for="(post, index) in comingSoon"
+            :key="index"
+          />
         </div>
       </div>
     </div>
@@ -18,19 +38,29 @@ export default {
   components: { bkcards },
   data() {
     return {
-      recBooks: {
-        title: "Recommended Books",
-        subSec: "A wealth of knowledge at your hands and control",
-        recBooks: true,
-        photo: "easter",
-      },
-      samplebooks: [
-        { bookTitle: "book 1", subSec: "Astra" },
-        { bookTitle: "book 2", subSec: "supernova" },
-        { bookTitle: "book 3", subSec: "quasar" },
-        { bookTitle: "book 4", subSec: "blackhole" },
-        { bookTitle: "book 5", subSec: "megastructures" },
-        { bookTitle: "book 6", subSec: "kardishev scale" },
+      recBooks: [
+        { bookTitle: "Astra" },
+        { bookTitle: "supernova" },
+        { bookTitle: "quasar" },
+        { bookTitle: "blackhole" },
+        { bookTitle: "megastructures" },
+        { bookTitle: "kardishev scale" },
+      ],
+      arriveNew: [
+        { bookTitle: "Astra2" },
+        { bookTitle: "supernova2" },
+        { bookTitle: "quasar2" },
+        { bookTitle: "blackhole2" },
+        { bookTitle: "megastructures2" },
+        { bookTitle: "kardishev scale2" },
+      ],
+      comingSoon: [
+        { bookTitle: "Astra2" },
+        { bookTitle: "supernova2" },
+        { bookTitle: "quasar2" },
+        { bookTitle: "blackhole2" },
+        { bookTitle: "megastructures2" },
+        { bookTitle: "kardishev scale2" },
       ],
     };
   },
@@ -43,5 +73,8 @@ export default {
     margin-bottom: 32px;
     font-weight: 300;
   }
+}
+.booksec {
+  padding: 1.5em;
 }
 </style>
