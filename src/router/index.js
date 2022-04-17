@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
-// import HomeView from "../views/HomeView.vue";
 import login from "../views/LoginView.vue";
 import register from "../views/RegisterView.vue";
 import passrecov from "../views/PassRecovView.vue";
+import userProfile from "../views/userProfile.vue";
+import wishlist from "../views/WishList.vue";
 const routes = [
   {
     path: "/",
@@ -67,6 +68,22 @@ const routes = [
     component: passrecov,
     meta: {
       title: "Password Recovery",
+    },
+  },
+  {
+    path: "/user",
+    name: "user-profile",
+    component: userProfile,
+    meta: {
+      title: "Profile",
+    },
+  },
+  {
+    path: "/wishlist",
+    name: "wishlist",
+    component: wishlist,
+    meta: {
+      title: "Wishlist",
     },
   },
 ];

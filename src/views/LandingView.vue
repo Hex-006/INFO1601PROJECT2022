@@ -32,35 +32,96 @@
 </template>
 <script>
 import bkcards from "../components/bookCard";
-// import subSec from "../components/subSec";
-
 export default {
   components: { bkcards },
+  methods: {
+    async loadrec(name) {
+      const url = "https://www.googleapis.com/books/v1/volumes?q=";
+      fetch(
+        url + "subject:" + name + "&key=AIzaSyCKfoa432lUhXLpBwTyzcVF4YmchJyizpw"
+      )
+        .then((response) => {
+          return response.json();
+        })
+        .then((resData) => {
+          for (let i = 0; i < 6; i++) {
+            console.log(resData.items[i].selfLink);
+            this.recBooks[i].bookTitle = resData.items[i].volumeInfo.title;
+            this.recBooks[i].bookCoverimg =
+              resData.items[i].volumeInfo.imageLinks.thumbnail;
+            this.recBooks[i].bookdetails = resData.items[i].selfLink;
+          }
+        });
+    },
+    async loadarrivenew(name) {
+      const url = "https://www.googleapis.com/books/v1/volumes?q=";
+      fetch(
+        url +
+          "subject:" +
+          name +
+          "&orderBy=newest&key=AIzaSyCKfoa432lUhXLpBwTyzcVF4YmchJyizpw"
+      )
+        .then((response) => {
+          return response.json();
+        })
+        .then((resData) => {
+          for (let i = 0; i < 6; i++) {
+            // console.log(resData.items[i].selfLink);
+            this.arriveNew[i].bookTitle = resData.items[i].volumeInfo.title;
+            this.arriveNew[i].bookCoverimg =
+              resData.items[i].volumeInfo.imageLinks.thumbnail;
+            this.arriveNew[i].bookdetails = resData.items[i].selfLink;
+          }
+        });
+    },
+    async loadcomesoon(name) {
+      const url = "https://www.googleapis.com/books/v1/volumes?q=";
+      fetch(
+        url + "subject:" + name + "&key=AIzaSyCKfoa432lUhXLpBwTyzcVF4YmchJyizpw"
+      )
+        .then((response) => {
+          return response.json();
+        })
+        .then((resData) => {
+          for (let i = 0; i < 6; i++) {
+            this.comingSoon[i].bookTitle = resData.items[i].volumeInfo.title;
+            this.comingSoon[i].bookCoverimg =
+              resData.items[i].volumeInfo.imageLinks.thumbnail;
+            this.comingSoon[i].bookdetails = resData.items[i].selfLink;
+          }
+        });
+    },
+  },
+  beforeMount() {
+    this.loadrec("self help money");
+    this.loadarrivenew("fantasy");
+    this.loadcomesoon("romance");
+  },
   data() {
     return {
       recBooks: [
-        { bookTitle: "Astra" },
-        { bookTitle: "supernova" },
-        { bookTitle: "quasar" },
-        { bookTitle: "blackhole" },
-        { bookTitle: "megastructures" },
-        { bookTitle: "kardishev scale" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
       ],
       arriveNew: [
-        { bookTitle: "Astra2" },
-        { bookTitle: "supernova2" },
-        { bookTitle: "quasar2" },
-        { bookTitle: "blackhole2" },
-        { bookTitle: "megastructures2" },
-        { bookTitle: "kardishev scale2" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
       ],
       comingSoon: [
-        { bookTitle: "Astra2" },
-        { bookTitle: "supernova2" },
-        { bookTitle: "quasar2" },
-        { bookTitle: "blackhole2" },
-        { bookTitle: "megastructures2" },
-        { bookTitle: "kardishev scale2" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
       ],
     };
   },

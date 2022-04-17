@@ -52,7 +52,7 @@ export default {
           this.$router.push({ name: "Home" });
           this.error = false;
           this.emsg = "";
-          console.log(firebase.auth().currentUser.uid);
+          // console.log(firebase.auth().currentUser.uid);
         })
         .catch((err) => {
           this.error = true;

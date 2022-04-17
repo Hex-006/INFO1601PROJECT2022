@@ -31,9 +31,7 @@
         </div>
         <div v-show="error" class="error">{{ this.emsg }}</div>
       </div>
-      <button class="sgin" @click.prevent="reguser">Sign Up</button>
-      <!-- <br />
-      <button @click.prevent="">Testing</button> -->
+      <button class="sgin" @click.prevent="reguser">Sign Up</button>>
     </form>
   </div>
 </template>
@@ -81,15 +79,21 @@ export default {
           userName: this.uname,
           email: this.email,
         });
-        this.$router.push({ path: "/" });
+        this.$router.push({ path: "/", replace: true });
         return;
-      } else {
-        this.error = true;
-        this.emsg = "Please fill out all fields";
       }
+      this.error = true;
+      this.emsg = "Please fill out all fields";
+      return;
     },
   },
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.reg {
+  h2 {
+    max-width: 420px;
+  }
+}
+</style>

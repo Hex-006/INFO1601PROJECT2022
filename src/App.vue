@@ -24,7 +24,8 @@
 <script>
 import Navigation from "/src/components/NaviSection";
 import Foot from "/src/components/footerSection";
-// import bandimg from "";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 export default {
   name: "app",
   components: { Navigation, Foot },
@@ -34,6 +35,14 @@ export default {
     };
   },
   created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      this.$store.commit("haveUser", user);
+      if (user) {
+        this.$store.dispatch("getCurUser");
+        return;
+        // console.log(this.$store.state.profileemail);
+      }
+    });
     this.croute();
   },
   mounted() {},
@@ -42,13 +51,20 @@ export default {
       if (
         this.$route.path.startsWith("/log") ||
         this.$route.path.startsWith("/reg") ||
-        this.$route.path.startsWith("/pass")
+        this.$route.path.startsWith("/pass") ||
+        this.$route.path.startsWith("/user") ||
+        this.$route.path.startsWith("/wishlist")
       ) {
         this.navDis = true;
         return;
       } else {
         this.navDis = false;
       }
+    },
+  },
+  computed: {
+    user() {
+      return this.$store.state.user;
     },
   },
   watch: {

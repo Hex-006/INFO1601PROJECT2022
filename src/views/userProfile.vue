@@ -1,9 +1,9 @@
 <template>
-  <div class="wlist"></div>
+  <div class="uprofile"></div>
 </template>
 
 <script>
 export default {};
 </script>
 
-<style lang="scss" scoped></style>
+<style></style>

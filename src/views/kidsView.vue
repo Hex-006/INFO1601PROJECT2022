@@ -1,5 +1,195 @@
 <template>
   <div class="kids">
-    <h1>Kids</h1>
+    <div class="book-card-wrap">
+      <div class="container">
+        <h2>Best Selling</h2>
+        <div class="booksec">
+          <bkcards
+            :post="post"
+            v-for="(post, index) in bestBooks"
+            :key="index"
+          />
+        </div>
+        <h2>Comics</h2>
+        <div class="booksec">
+          <bkcards
+            :post="post"
+            v-for="(post, index) in comicBooks"
+            :key="index"
+          />
+        </div>
+        <h2>Kid's Classics</h2>
+        <div class="booksec">
+          <bkcards
+            :post="post"
+            v-for="(post, index) in kclasBooks"
+            :key="index"
+          />
+        </div>
+        <h2>Picture Books</h2>
+        <div class="booksec">
+          <bkcards
+            :post="post"
+            v-for="(post, index) in picBooks"
+            :key="index"
+          />
+        </div>
+        <h2>Disney</h2>
+        <div class="booksec">
+          <bkcards
+            :post="post"
+            v-for="(post, index) in disneyBooks"
+            :key="index"
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
+<script>
+import bkcards from "../components/bookCard";
+export default {
+  components: { bkcards },
+  methods: {
+    async loadbestchildBooks(name) {
+      const url = "https://www.googleapis.com/books/v1/volumes?q=";
+      fetch(
+        url +
+          name +
+          "&orderBy=relevance&key=AIzaSyCKfoa432lUhXLpBwTyzcVF4YmchJyizpw"
+      )
+        .then((response) => {
+          return response.json();
+        })
+        .then((resData) => {
+          for (let i = 0; i < resData.items.length; i++) {
+            // console.log(resData.items[i].selfLink);
+            this.bestBooks[i].bookTitle = resData.items[i].volumeInfo.title;
+            this.bestBooks[i].bookCoverimg =
+              resData.items[i].volumeInfo.imageLinks.thumbnail;
+          }
+        });
+    },
+    async loadcomicBooks(name) {
+      const url = "https://www.googleapis.com/books/v1/volumes?q=";
+      fetch(
+        url +
+          name +
+          "&orderBy=relevance&key=AIzaSyCKfoa432lUhXLpBwTyzcVF4YmchJyizpw"
+      )
+        .then((response) => {
+          return response.json();
+        })
+        .then((resData) => {
+          for (let i = 0; i < resData.items.length; i++) {
+            // console.log(resData.items[i].selfLink);
+            this.comicBooks[i].bookTitle = resData.items[i].volumeInfo.title;
+            this.comicBooks[i].bookCoverimg =
+              resData.items[i].volumeInfo.imageLinks.thumbnail;
+          }
+        });
+    },
+    async loadkclassicsBooks(name) {
+      const url = "https://www.googleapis.com/books/v1/volumes?q=";
+      fetch(url + name + "&key=AIzaSyCKfoa432lUhXLpBwTyzcVF4YmchJyizpw")
+        .then((response) => {
+          return response.json();
+        })
+        .then((resData) => {
+          for (let i = 0; i < resData.items.length; i++) {
+            // console.log(resData.items[i].selfLink);
+            this.kclasBooks[i].bookTitle = resData.items[i].volumeInfo.title;
+            this.kclasBooks[i].bookCoverimg =
+              resData.items[i].volumeInfo.imageLinks.thumbnail;
+          }
+        });
+    },
+    async loadpicBooks(name) {
+      const url = "https://www.googleapis.com/books/v1/volumes?q=";
+      fetch(url + name + "&key=AIzaSyCKfoa432lUhXLpBwTyzcVF4YmchJyizpw")
+        .then((response) => {
+          return response.json();
+        })
+        .then((resData) => {
+          for (let i = 0; i < resData.items.length; i++) {
+            // console.log(resData.items[i].selfLink);
+            this.picBooks[i].bookTitle = resData.items[i].volumeInfo.title;
+            this.picBooks[i].bookCoverimg =
+              resData.items[i].volumeInfo.imageLinks.thumbnail;
+          }
+        });
+    },
+    async loadDisneyBooks(name) {
+      const url = "https://www.googleapis.com/books/v1/volumes?q=";
+      fetch(
+        url +
+          "inpublisher: " +
+          name +
+          "&key=AIzaSyCKfoa432lUhXLpBwTyzcVF4YmchJyizpw"
+      )
+        .then((response) => {
+          return response.json();
+        })
+        .then((resData) => {
+          for (let i = 0; i < resData.items.length; i++) {
+            // console.log(resData);
+            this.disneyBooks[i].bookTitle = resData.items[i].volumeInfo.title;
+            this.disneyBooks[i].bookCoverimg =
+              resData.items[i].volumeInfo.imageLinks.thumbnail;
+          }
+        });
+    },
+  },
+  beforeMount() {
+    this.loadbestchildBooks("children's bestsellers");
+    this.loadcomicBooks("comics");
+    this.loadkclassicsBooks("kids classics");
+    this.loadpicBooks("childrens picture books");
+    this.loadDisneyBooks("Disney");
+  },
+  data() {
+    return {
+      bestBooks: [
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+      ],
+      comicBooks: [
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+      ],
+      kclasBooks: [
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+      ],
+      picBooks: [
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+      ],
+      disneyBooks: [
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "" },
+      ],
+    };
+  },
+};
+</script>
