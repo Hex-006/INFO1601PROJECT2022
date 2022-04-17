@@ -11,8 +11,14 @@ export default createStore({
     profileuname: null,
     profileID: null,
     profileinitial: null,
+    booklist: [],
+    listLoaded: null,
   },
-  getters: {},
+  getters: {
+    userBookList(state) {
+      return state.booklist;
+    },
+  },
   mutations: {
     setProf(state, payload) {
       state.profileID = payload.id;
@@ -20,7 +26,7 @@ export default createStore({
       state.profilefname = payload.data().firstName;
       state.profilelname = payload.data().lastName;
       state.profileuname = payload.data().userName;
-      console.log(state.profileemail);
+      // console.log(state.profileID);
     },
     ushorthand(state) {
       state.profileinitial =
@@ -39,6 +45,29 @@ export default createStore({
       const userRes = await udb.get();
       commit("setProf", userRes);
       commit("ushorthand");
+    },
+    async getUserBooklist({ state }) {
+      console.log(state.profileID);
+      const booklist = await fdata
+        .collection("users")
+        .doc(state.profileID)
+        .collection("Booklist");
+      const bklres = await booklist.get();
+      bklres.forEach((doc) => {
+        if (!state.booklist.some((post) => post.bookListindex === doc.id)) {
+          const data = {
+            bookId: doc.data().bookId,
+            bookTitle: doc.data().bookTitle,
+            bookAuthor: doc.data().bookAuthor,
+            bookDes: doc.data().bookDes,
+            bookImg: doc.data().bookImg,
+          };
+          state.booklist.push(data);
+          // console.log(state.booklist.bookImg);
+        }
+      });
+      state.listLoaded = true;
+      console.log(state.booklist);
     },
   },
   modules: {},

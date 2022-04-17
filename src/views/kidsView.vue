@@ -62,11 +62,12 @@ export default {
           return response.json();
         })
         .then((resData) => {
-          for (let i = 0; i < resData.items.length; i++) {
+          for (let i = 0; i < 6; i++) {
             // console.log(resData.items[i].selfLink);
             this.bestBooks[i].bookTitle = resData.items[i].volumeInfo.title;
             this.bestBooks[i].bookCoverimg =
               resData.items[i].volumeInfo.imageLinks.thumbnail;
+            this.bestBooks[i].bookdetails = resData.items[i].selfLink;
           }
         });
     },
@@ -81,11 +82,12 @@ export default {
           return response.json();
         })
         .then((resData) => {
-          for (let i = 0; i < resData.items.length; i++) {
+          for (let i = 0; i < 6; i++) {
             // console.log(resData.items[i].selfLink);
             this.comicBooks[i].bookTitle = resData.items[i].volumeInfo.title;
             this.comicBooks[i].bookCoverimg =
               resData.items[i].volumeInfo.imageLinks.thumbnail;
+            this.comicBooks[i].bookdetails = resData.items[i].selfLink;
           }
         });
     },
@@ -96,11 +98,12 @@ export default {
           return response.json();
         })
         .then((resData) => {
-          for (let i = 0; i < resData.items.length; i++) {
+          for (let i = 0; i < 6; i++) {
             // console.log(resData.items[i].selfLink);
             this.kclasBooks[i].bookTitle = resData.items[i].volumeInfo.title;
             this.kclasBooks[i].bookCoverimg =
               resData.items[i].volumeInfo.imageLinks.thumbnail;
+            this.kclasBooks[i].bookdetails = resData.items[i].selfLink;
           }
         });
     },
@@ -111,11 +114,12 @@ export default {
           return response.json();
         })
         .then((resData) => {
-          for (let i = 0; i < resData.items.length; i++) {
+          for (let i = 0; i < 6; i++) {
             // console.log(resData.items[i].selfLink);
             this.picBooks[i].bookTitle = resData.items[i].volumeInfo.title;
             this.picBooks[i].bookCoverimg =
               resData.items[i].volumeInfo.imageLinks.thumbnail;
+            this.picBooks[i].bookdetails = resData.items[i].selfLink;
           }
         });
     },
@@ -131,11 +135,12 @@ export default {
           return response.json();
         })
         .then((resData) => {
-          for (let i = 0; i < resData.items.length; i++) {
+          for (let i = 0; i < 6; i++) {
             // console.log(resData);
             this.disneyBooks[i].bookTitle = resData.items[i].volumeInfo.title;
             this.disneyBooks[i].bookCoverimg =
               resData.items[i].volumeInfo.imageLinks.thumbnail;
+            this.disneyBooks[i].bookdetails = resData.items[i].selfLink;
           }
         });
     },
@@ -150,44 +155,44 @@ export default {
   data() {
     return {
       bestBooks: [
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
       ],
       comicBooks: [
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
       ],
       kclasBooks: [
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
       ],
       picBooks: [
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
       ],
       disneyBooks: [
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
       ],
     };
   },

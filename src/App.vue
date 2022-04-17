@@ -38,7 +38,9 @@ export default {
     firebase.auth().onAuthStateChanged((user) => {
       this.$store.commit("haveUser", user);
       if (user) {
-        this.$store.dispatch("getCurUser");
+        this.$store.dispatch("getCurUser").then(() => {
+          this.$store.dispatch("getUserBooklist");
+        });
         return;
         // console.log(this.$store.state.profileemail);
       }

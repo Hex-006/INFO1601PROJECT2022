@@ -31,7 +31,9 @@
             </div>
             <div class="dropdownroutes">
               <router-link class="ddown-link" to="/user">Profile</router-link>
-              <router-link class="ddown-link" to="#">Wishlist</router-link>
+              <router-link class="ddown-link" to="/wishlist">
+                Wishlist
+              </router-link>
               <button @click="signout" class="ddown logout">Logout</button>
             </div>
           </div>

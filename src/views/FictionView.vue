@@ -49,6 +49,7 @@
 <script>
 import bkcards from "../components/bookCard";
 export default {
+  name: "fictionSec",
   components: { bkcards },
   methods: {
     async loadclasBooks(name) {
@@ -60,11 +61,12 @@ export default {
           return response.json();
         })
         .then((resData) => {
-          for (let i = 0; i < resData.items.length; i++) {
-            // console.log(resData.items[i].selfLink);
+          for (let i = 0; i < 6; i++) {
+            console.log(resData.items[i].selfLink);
             this.clasBooks[i].bookTitle = resData.items[i].volumeInfo.title;
             this.clasBooks[i].bookCoverimg =
               resData.items[i].volumeInfo.imageLinks.thumbnail;
+            this.clasBooks[i].bookdetails = resData.items[i].selfLink;
           }
         });
     },
@@ -77,11 +79,12 @@ export default {
           return response.json();
         })
         .then((resData) => {
-          for (let i = 0; i < resData.items.length; i++) {
+          for (let i = 0; i < 6; i++) {
             // console.log(resData.items[i].selfLink);
             this.mcrimeBooks[i].bookTitle = resData.items[i].volumeInfo.title;
             this.mcrimeBooks[i].bookCoverimg =
               resData.items[i].volumeInfo.imageLinks.thumbnail;
+            this.mcrimeBooks[i].bookdetails = resData.items[i].selfLink;
           }
         });
     },
@@ -94,11 +97,12 @@ export default {
           return response.json();
         })
         .then((resData) => {
-          for (let i = 0; i < resData.items.length; i++) {
+          for (let i = 0; i < 6; i++) {
             // console.log(resData.items[i].selfLink);
             this.mangaBooks[i].bookTitle = resData.items[i].volumeInfo.title;
             this.mangaBooks[i].bookCoverimg =
               resData.items[i].volumeInfo.imageLinks.thumbnail;
+            this.mangaBooks[i].bookdetails = resData.items[i].selfLink;
           }
         });
     },
@@ -111,11 +115,12 @@ export default {
           return response.json();
         })
         .then((resData) => {
-          for (let i = 0; i < resData.items.length; i++) {
+          for (let i = 0; i < 6; i++) {
             // console.log(resData.items[i].selfLink);
             this.romBooks[i].bookTitle = resData.items[i].volumeInfo.title;
             this.romBooks[i].bookCoverimg =
               resData.items[i].volumeInfo.imageLinks.thumbnail;
+            this.romBooks[i].bookdetails = resData.items[i].selfLink;
           }
         });
     },
@@ -126,11 +131,12 @@ export default {
           return response.json();
         })
         .then((resData) => {
-          for (let i = 0; i < resData.items.length; i++) {
+          for (let i = 0; i < 6; i++) {
             // console.log(resData.items[i]);
             this.basedBooks[i].bookTitle = resData.items[i].volumeInfo.title;
             this.basedBooks[i].bookCoverimg =
               resData.items[i].volumeInfo.imageLinks.thumbnail;
+            this.basedBooks[i].bookdetails = resData.items[i].selfLink;
           }
         });
     },
@@ -145,44 +151,44 @@ export default {
   data() {
     return {
       clasBooks: [
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
       ],
       mcrimeBooks: [
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
       ],
       mangaBooks: [
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
       ],
       romBooks: [
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
       ],
       basedBooks: [
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
-        { bookTitle: "", bookCoverimg: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
+        { bookTitle: "", bookCoverimg: "", bookdetails: "" },
       ],
     };
   },

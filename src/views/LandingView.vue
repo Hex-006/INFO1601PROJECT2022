@@ -33,6 +33,7 @@
 <script>
 import bkcards from "../components/bookCard";
 export default {
+  name: "LandingHome",
   components: { bkcards },
   methods: {
     async loadrec(name) {

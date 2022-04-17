@@ -80,7 +80,7 @@ const routes = [
   },
   {
     path: "/wishlist",
-    name: "wishlist",
+    name: "wishList",
     component: wishlist,
     meta: {
       title: "Wishlist",
