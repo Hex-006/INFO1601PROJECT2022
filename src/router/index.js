@@ -4,6 +4,7 @@ import register from "../views/RegisterView.vue";
 import passrecov from "../views/PassRecovView.vue";
 import userProfile from "../views/userProfile.vue";
 import wishlist from "../views/WishList.vue";
+import bdetail from "../views/bookDetail.vue";
 const routes = [
   {
     path: "/",
@@ -84,6 +85,14 @@ const routes = [
     component: wishlist,
     meta: {
       title: "Wishlist",
+    },
+  },
+  {
+    path: "/bookdetail",
+    name: "bookdetail",
+    component: bdetail,
+    meta: {
+      title: "Detail",
     },
   },
 ];

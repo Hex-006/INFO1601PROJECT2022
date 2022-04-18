@@ -6,8 +6,23 @@
           <router-link class="headlink" to="/">
             Library of Neo Alexadria
           </router-link>
-          <input type="text" class="searchbar" placeholder="Search here" />
-          <button class="btn btn-primary">Search</button>
+          <nav class="nav-links">
+            <li>
+              <router-link class="link" to="/">Home</router-link>
+              |
+              <router-link class="link" to="/fiction">Fiction</router-link>
+              |
+              <router-link class="link" to="/nonfiction">
+                Non-Fiction
+              </router-link>
+              |
+              <router-link class="link" to="/youngadult">
+                Young-Adult
+              </router-link>
+              |
+              <router-link class="link" to="/kids">Kids</router-link>
+            </li>
+          </nav>
           <router-link v-if="!user" class="link" to="/login">
             Login /
           </router-link>

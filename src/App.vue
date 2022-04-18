@@ -2,19 +2,6 @@
   <div class="app-wrapper">
     <div class="app">
       <Navigation v-if="!navDis" />
-      <nav class="nav-links" v-if="!navDis">
-        <li>
-          <router-link class="link" to="/">Home</router-link>
-          |
-          <router-link class="link" to="/fiction">Fiction</router-link>
-          |
-          <router-link class="link" to="/nonfiction">Non-Fiction</router-link>
-          |
-          <router-link class="link" to="/youngadult">Young-Adult</router-link>
-          |
-          <router-link class="link" to="/kids">Kids</router-link>
-        </li>
-      </nav>
       <router-view />
     </div>
     <Foot v-if="!navDis" />

@@ -26,9 +26,6 @@ export default {
       return this.$store.getters.userBookList;
     },
   },
-  beforeMount() {
-    console.log(this.$store.getters.userBookList.BookCover);
-  },
 };
 </script>
 

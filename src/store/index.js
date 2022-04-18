@@ -36,6 +36,11 @@ export default createStore({
     haveUser(state, payload) {
       state.user = payload;
     },
+    wishlistAcc(state, payload) {
+      state.booklist = state.booklist.filter(
+        (post) => post.bookListindex !== payload
+      );
+    },
   },
   actions: {
     async getCurUser({ commit }) {
@@ -47,15 +52,16 @@ export default createStore({
       commit("ushorthand");
     },
     async getUserBooklist({ state }) {
-      console.log(state.profileID);
-      const booklist = await fdata
+      // console.log(state.profileID);
+      const blist = await fdata
         .collection("users")
         .doc(state.profileID)
         .collection("Booklist");
-      const bklres = await booklist.get();
+      const bklres = await blist.get();
       bklres.forEach((doc) => {
         if (!state.booklist.some((post) => post.bookListindex === doc.id)) {
           const data = {
+            bookListindex: doc.data().bookListindex,
             bookId: doc.data().bookId,
             bookTitle: doc.data().bookTitle,
             bookAuthor: doc.data().bookAuthor,
@@ -63,11 +69,20 @@ export default createStore({
             bookImg: doc.data().bookImg,
           };
           state.booklist.push(data);
-          // console.log(state.booklist.bookImg);
         }
       });
       state.listLoaded = true;
-      console.log(state.booklist);
+    },
+    async wishlistremove({ commit }, payload) {
+      console.log(this.state.profileID);
+      console.log(payload);
+      const getCard = await fdata
+        .collection("users")
+        .doc(this.state.profileID)
+        .collection("Booklist")
+        .doc(payload);
+      await getCard.delete();
+      commit("wishlistAcc", payload);
     },
   },
   modules: {},

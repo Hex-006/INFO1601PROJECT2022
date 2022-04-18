@@ -3,7 +3,9 @@
     <div class="inf">
       <img :src="post.bookCoverimg" />
       <h4>{{ post.bookTitle }}</h4>
-      <router-link class="link" to="#"> <h6>view book</h6> </router-link>
+      <router-link class="link" to="/bookdetail">
+        <h6>view book</h6>
+      </router-link>
       <button @click.prevent="wishlistload" class="wishbttn">
         Add to Wishlish
       </button>
@@ -13,7 +15,6 @@
 
 <script>
 import fdata from "../firebase/firebaseinit";
-// import { addDoc } from "firebase/firestore";
 export default {
   name: "bookCard",
   props: ["post"],
@@ -47,9 +48,6 @@ export default {
           this.bookAuthor = res.volumeInfo.authors[0];
           this.bookDes = res.volumeInfo.description;
           this.bookImg = res.volumeInfo.imageLinks.thumbnail;
-          // this.bookPagelen = res.volumeInfo.pageCount;
-          // this.bookCat1 = res.volumeInfo.categories[0];
-          // this.bookCat2 = res.volumeInfo.categories[1];/
           const databasedest = fdata
             .collection("users")
             .doc(this.$store.state.user.uid)

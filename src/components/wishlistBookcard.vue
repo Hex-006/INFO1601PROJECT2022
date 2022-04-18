@@ -19,5 +19,11 @@ export default {
       return this.$store.state.user;
     },
   },
+  methods: {
+    wishlistremove() {
+      // console.log(this.post.bookListindex);
+      this.$store.dispatch("wishlistremove", this.post.bookListindex);
+    },
+  },
 };
 </script>
